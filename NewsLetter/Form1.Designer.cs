@@ -100,7 +100,7 @@
             this.txtItem5.Name = "txtItem5";
             this.txtItem5.Size = new System.Drawing.Size(94, 22);
             this.txtItem5.TabIndex = 9;
-            this.txtItem5.Text = "71894";
+            this.txtItem5.Text = "ID";
             // 
             // label5
             // 
@@ -117,7 +117,7 @@
             this.txtItem4.Name = "txtItem4";
             this.txtItem4.Size = new System.Drawing.Size(94, 22);
             this.txtItem4.TabIndex = 7;
-            this.txtItem4.Text = "71893";
+            this.txtItem4.Text = "ID";
             // 
             // label4
             // 
@@ -134,7 +134,7 @@
             this.txtItem3.Name = "txtItem3";
             this.txtItem3.Size = new System.Drawing.Size(94, 22);
             this.txtItem3.TabIndex = 5;
-            this.txtItem3.Text = "71892";
+            this.txtItem3.Text = "ID";
             // 
             // label3
             // 
@@ -151,7 +151,7 @@
             this.txtItem2.Name = "txtItem2";
             this.txtItem2.Size = new System.Drawing.Size(94, 22);
             this.txtItem2.TabIndex = 3;
-            this.txtItem2.Text = "71891";
+            this.txtItem2.Text = "ID";
             // 
             // label2
             // 
@@ -168,7 +168,7 @@
             this.txtItem1.Name = "txtItem1";
             this.txtItem1.Size = new System.Drawing.Size(94, 22);
             this.txtItem1.TabIndex = 1;
-            this.txtItem1.Text = "71889";
+            this.txtItem1.Text = "ID";
             // 
             // label1
             // 
