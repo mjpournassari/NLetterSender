@@ -44,7 +44,7 @@ namespace NewsLetter
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string Url = "http://localhost:84/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim();
+            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim();
             webBrowser1.Navigate(Url);
             Process objProcess = Process.Start("IEXPLORE.EXE", "-nomerge "+ Url);
         }
