@@ -24,7 +24,7 @@ namespace NewsLetter
         private void btnReload_Click(object sender, EventArgs e)
         {
             HttpWebRequest request =
-               (HttpWebRequest)WebRequest.Create("http://217.218.64.54/nl/getemails.aspx?kind=1");
+               (HttpWebRequest)WebRequest.Create("http://217.218.67.142/nl/getemails.aspx?kind=1");
 
             WebResponse response = request.GetResponse();
             Stream stream = response.GetResponseStream();
