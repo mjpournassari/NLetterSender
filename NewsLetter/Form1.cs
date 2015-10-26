@@ -23,6 +23,7 @@ namespace NewsLetter
       
         private void btnReload_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             HttpWebRequest request =
                (HttpWebRequest)WebRequest.Create("http://217.218.67.142/nl/getemails.aspx?kind=1");
 
