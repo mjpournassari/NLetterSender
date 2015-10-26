@@ -56,29 +56,29 @@ namespace NewsLetter
         }
         public void SendEmail(string to)
         {
-            //try
-            //{
-            SmtpClient smtpClient = new SmtpClient();
-            NetworkCredential basicCredential = new NetworkCredential("noreply@hispantv.com", "%123456%");
-            //NetworkCredential basicCredential = new NetworkCredential("emad81@presstv.com", "1qaz!QAZ");
-            MailMessage message = new MailMessage();
-            MailAddress fromAddress = new MailAddress("noreply@hispantv.com");
-            //MailAddress fromAddress = new MailAddress("emad81@presstv.com");
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient();
+                NetworkCredential basicCredential = new NetworkCredential("noreply@hispantv.com", "%123456%");
+                //NetworkCredential basicCredential = new NetworkCredential("emad81@presstv.com", "1qaz!QAZ");
+                MailMessage message = new MailMessage();
+                MailAddress fromAddress = new MailAddress("noreply@hispantv.com");
+            //    MailAddress fromAddress = new MailAddress("emad81@presstv.com");
 
-            smtpClient.Host = "mail.hispantv.com";
-            //smtpClient.Host = "mail.presstv.com";
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = basicCredential;
-            // smtpClient.Timeout = (60 * 5 * 1000);
+                smtpClient.Host = "mail.hispantv.com";
+            //    smtpClient.Host = "mail.presstv.com";
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = basicCredential;
+                smtpClient.Timeout = (60 * 5 * 1000);
 
-            message.From = fromAddress;
-            message.Subject = txtSubject.Text.Trim();
-            message.IsBodyHtml = true;
-            message.Body = webBrowser1.Document.Body.OuterHtml;
-            message.To.Add(to);
-            smtpClient.Send(message);
-            //}
-            //catch { }
+                message.From = fromAddress;
+                message.Subject = txtSubject.Text.Trim();
+                message.IsBodyHtml = true;
+                message.Body = webBrowser1.Document.Body.OuterHtml;
+                message.To.Add(to);
+                smtpClient.Send(message);
+            }
+            catch { }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
