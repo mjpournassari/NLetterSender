@@ -46,7 +46,7 @@ namespace NewsLetter
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim();
+            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&text1="+textBox1.Text+"&text2="+textBox2.Text;
             webBrowser1.Navigate(Url);
             Process objProcess = Process.Start("IEXPLORE.EXE", "-nomerge " + Url);
         }
@@ -75,7 +75,10 @@ namespace NewsLetter
                 message.From = fromAddress;
                 message.Subject = txtSubject.Text.Trim();
                 message.IsBodyHtml = true;
-                message.Body = webBrowser1.Document.Body.OuterHtml.Replace("[[UN]]", "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(to, true));
+                string HTML= webBrowser1.Document.Body.OuterHtml.Replace("[[UN]]", "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(to, true));
+                HTML = HTML.Replace("[[TXT1]]", textBox1.Text.Trim());
+                HTML = HTML.Replace("[[TXT2]]", textBox2.Text.Trim());
+                message.Body = HTML;
                 message.To.Add(to);
                 smtpClient.Send(message);
             }

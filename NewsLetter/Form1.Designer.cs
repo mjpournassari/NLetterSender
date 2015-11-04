@@ -31,8 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtItem5 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtItem4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +50,10 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Row = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Save = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.txtSubject = new System.Windows.Forms.TextBox();
@@ -54,10 +62,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Row = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Save = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,8 +71,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnPreview);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.txtItem5);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtItem4);
             this.groupBox1.Controls.Add(this.label4);
@@ -80,36 +88,68 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 137);
+            this.groupBox1.Size = new System.Drawing.Size(676, 122);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generate Newsletter";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(323, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Text2:";
             // 
             // btnPreview
             // 
             this.btnPreview.BackColor = System.Drawing.Color.Green;
             this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreview.ForeColor = System.Drawing.Color.White;
-            this.btnPreview.Location = new System.Drawing.Point(177, 85);
+            this.btnPreview.Location = new System.Drawing.Point(172, 82);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(143, 32);
+            this.btnPreview.Size = new System.Drawing.Size(491, 35);
             this.btnPreview.TabIndex = 10;
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = false;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(388, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(275, 22);
+            this.textBox2.TabIndex = 17;
+            // 
             // txtItem5
             // 
-            this.txtItem5.Location = new System.Drawing.Point(226, 57);
+            this.txtItem5.Location = new System.Drawing.Point(221, 54);
             this.txtItem5.Name = "txtItem5";
             this.txtItem5.Size = new System.Drawing.Size(94, 22);
             this.txtItem5.TabIndex = 9;
             this.txtItem5.Text = "ID";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(323, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Text1:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(388, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(275, 22);
+            this.textBox1.TabIndex = 15;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(174, 60);
+            this.label5.Location = new System.Drawing.Point(169, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 8;
@@ -117,7 +157,7 @@
             // 
             // txtItem4
             // 
-            this.txtItem4.Location = new System.Drawing.Point(226, 31);
+            this.txtItem4.Location = new System.Drawing.Point(221, 28);
             this.txtItem4.Name = "txtItem4";
             this.txtItem4.Size = new System.Drawing.Size(94, 22);
             this.txtItem4.TabIndex = 7;
@@ -126,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(174, 34);
+            this.label4.Location = new System.Drawing.Point(169, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 6;
@@ -134,7 +174,7 @@
             // 
             // txtItem3
             // 
-            this.txtItem3.Location = new System.Drawing.Point(69, 87);
+            this.txtItem3.Location = new System.Drawing.Point(69, 90);
             this.txtItem3.Name = "txtItem3";
             this.txtItem3.Size = new System.Drawing.Size(94, 22);
             this.txtItem3.TabIndex = 5;
@@ -143,7 +183,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 90);
+            this.label3.Location = new System.Drawing.Point(17, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 4;
@@ -205,9 +245,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 155);
+            this.groupBox3.Location = new System.Drawing.Point(12, 213);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(704, 494);
+            this.groupBox3.Size = new System.Drawing.Size(676, 436);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "List";
@@ -230,85 +270,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(698, 473);
+            this.dataGridView1.Size = new System.Drawing.Size(670, 415);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseEnter);
-            // 
-            // btnSend
-            // 
-            this.btnSend.BackColor = System.Drawing.Color.Red;
-            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(229, 55);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(135, 40);
-            this.btnSend.TabIndex = 11;
-            this.btnSend.Text = "SEND";
-            this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackColor = System.Drawing.Color.Navy;
-            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.ForeColor = System.Drawing.Color.White;
-            this.btnReload.Location = new System.Drawing.Point(71, 58);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(146, 40);
-            this.btnReload.TabIndex = 12;
-            this.btnReload.Text = "Reload List";
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // txtSubject
-            // 
-            this.txtSubject.Location = new System.Drawing.Point(71, 27);
-            this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(293, 22);
-            this.txtSubject.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 17);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Subject:";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnSend);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.btnReload);
-            this.groupBox4.Controls.Add(this.txtSubject);
-            this.groupBox4.Location = new System.Drawing.Point(346, 12);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(370, 137);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Email";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Save";
-            this.dataGridViewImageColumn1.Image = global::NewsLetter.Properties.Resources.save;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 46;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Remove";
-            this.dataGridViewImageColumn2.Image = global::NewsLetter.Properties.Resources.button_cancel;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 66;
             // 
             // Row
             // 
@@ -343,11 +309,85 @@
             this.Remove.ReadOnly = true;
             this.Remove.Width = 66;
             // 
+            // btnSend
+            // 
+            this.btnSend.BackColor = System.Drawing.Color.Red;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.Location = new System.Drawing.Point(528, 17);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(135, 40);
+            this.btnSend.TabIndex = 11;
+            this.btnSend.Text = "SEND";
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.Color.Navy;
+            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.ForeColor = System.Drawing.Color.White;
+            this.btnReload.Location = new System.Drawing.Point(370, 18);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(146, 40);
+            this.btnReload.TabIndex = 12;
+            this.btnReload.Text = "Reload List";
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Location = new System.Drawing.Point(71, 27);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(293, 22);
+            this.txtSubject.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Subject:";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnSend);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.btnReload);
+            this.groupBox4.Controls.Add(this.txtSubject);
+            this.groupBox4.Location = new System.Drawing.Point(12, 140);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(676, 67);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Email";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Save";
+            this.dataGridViewImageColumn1.Image = global::NewsLetter.Properties.Resources.save;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 46;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Remove";
+            this.dataGridViewImageColumn2.Image = global::NewsLetter.Properties.Resources.button_cancel;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 66;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 658);
+            this.ClientSize = new System.Drawing.Size(702, 658);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -356,7 +396,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Newsletter Manager 20151027";
+            this.Text = "Newsletter 20151104";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.groupBox1.ResumeLayout(false);
@@ -400,6 +440,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewImageColumn Save;
         private System.Windows.Forms.DataGridViewImageColumn Remove;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
