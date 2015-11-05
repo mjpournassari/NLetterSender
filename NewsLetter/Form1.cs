@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,6 +17,7 @@ namespace NewsLetter
 {
     public partial class Form1 : Form
     {
+        string _Channel = string.Empty;
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +27,12 @@ namespace NewsLetter
         private void btnReload_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            string Url= "http://217.218.67.142/nl/getemails.aspx?kind=1";
+            if(_Channel=="PTV")
+                Url = "http://217.218.67.142/nl/getemails.aspx?kind=2";
+
             HttpWebRequest request =
-               (HttpWebRequest)WebRequest.Create("http://217.218.67.142/nl/getemails.aspx?kind=1");
+               (HttpWebRequest)WebRequest.Create(Url);
 
             WebResponse response = request.GetResponse();
             Stream stream = response.GetResponseStream();
@@ -47,6 +53,8 @@ namespace NewsLetter
         private void btnPreview_Click(object sender, EventArgs e)
         {
             string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&text1="+textBox1.Text+"&text2="+textBox2.Text;
+            if (_Channel == "PTV")
+                Url = "http://presstv.com/Callback/Newsletter?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim();
             webBrowser1.Navigate(Url);
             Process objProcess = Process.Start("IEXPLORE.EXE", "-nomerge " + Url);
         }
@@ -54,28 +62,42 @@ namespace NewsLetter
         private void Form1_Load(object sender, EventArgs e)
         {
             //btnReload_Click(null, null);
+            _Channel = ConfigurationSettings.AppSettings["channel"].ToString().Trim();
+            if (_Channel == "PTV")
+            {
+                lblChannel.Text = "PRESSTV";
+                textBox1.Enabled = textBox2.Enabled = false;
+            }
+            if (_Channel == "HTV")
+            {
+                lblChannel.Text = "HISPANTV";
+            }
         }
+            
         public void SendEmail(string to)
         {
             try
             {
                 SmtpClient smtpClient = new SmtpClient();
                 NetworkCredential basicCredential = new NetworkCredential("noreply@hispantv.com", "%123456%");
-                //NetworkCredential basicCredential = new NetworkCredential("emad81@presstv.com", "1qaz!QAZ");
+                if (_Channel == "PTV")
+                    basicCredential = new NetworkCredential("newsletter@presstv.com", "1qaz!QAZ");
                 MailMessage message = new MailMessage();
                 MailAddress fromAddress = new MailAddress("noreply@hispantv.com");
-                //    MailAddress fromAddress = new MailAddress("emad81@presstv.com");
-
+                if (_Channel == "PTV")
+                    fromAddress = new MailAddress("newsletter@presstv.com");
                 smtpClient.Host = "mail.hispantv.com";
-                //    smtpClient.Host = "mail.presstv.com";
+                if (_Channel == "PTV")
+                    smtpClient.Host = "mail.presstv.com";
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = basicCredential;
                 smtpClient.Timeout = (60 * 5 * 1000);
-
                 message.From = fromAddress;
                 message.Subject = txtSubject.Text.Trim();
                 message.IsBodyHtml = true;
-                string HTML= webBrowser1.Document.Body.OuterHtml.Replace("[[UN]]", "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(to, true));
+                string HTML= webBrowser1.Document.Body.OuterHtml.Replace("[[UN]]", "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(to, true)+"&kind=1");
+                if (_Channel == "PTV")
+                    HTML = webBrowser1.Document.Body.OuterHtml.Replace("[[UN]]", "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(to, true) + "&kind=2");
                 HTML = HTML.Replace("[[TXT1]]", textBox1.Text.Trim());
                 HTML = HTML.Replace("[[TXT2]]", textBox2.Text.Trim());
                 message.Body = HTML;
@@ -91,8 +113,15 @@ namespace NewsLetter
             {
                 if (txtSubject.Text.Trim().Length > 0)
                 {
-                    timer1.Enabled = true;
-                    timer1_Tick(null, null);
+                    if (webBrowser1.Document !=null)
+                    {
+                        timer1.Enabled = true;
+                        timer1_Tick(null, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Click Preview, Please");
+                    }
                 }
                 else
                 {
@@ -160,6 +189,9 @@ namespace NewsLetter
                 {
                     if (_Lastemail != dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString().Trim())
                     {
+                        string UpdateUrl= "http://217.218.67.142/nl/updateemail.aspx?email=" + _Lastemail + "&newemail=" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString().Trim() + "&kind=1";
+                        if(_Channel=="PTV")
+                            UpdateUrl= "http://217.218.67.142/nl/updateemail.aspx?email=" + _Lastemail + "&newemail=" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString().Trim() + "&kind=2";
                         HttpWebRequest request =
                        (HttpWebRequest)WebRequest.Create("http://217.218.67.142/nl/updateemail.aspx?email=" + _Lastemail + "&newemail=" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString().Trim() + "");
 
@@ -187,8 +219,11 @@ namespace NewsLetter
                DialogResult dr= MessageBox.Show("Are you sure to delete:"+ dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "???","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if(dr==DialogResult.Yes)
                 {
+                    string unSub = "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), true) + "&kind=1";
+                    if(_Channel=="PTV")
+                        unSub = "http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), true) + "&kind=2";
                     HttpWebRequest request =
-                      (HttpWebRequest)WebRequest.Create("http://217.218.64.54/nl/unsubscribe.aspx?email=" + Encrypt(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), true));
+                      (HttpWebRequest)WebRequest.Create(unSub);
 
                     WebResponse response = request.GetResponse();
                     Stream stream = response.GetResponseStream();

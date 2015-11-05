@@ -62,6 +62,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblChannel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblChannel);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnPreview);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -109,7 +111,7 @@
             this.btnPreview.ForeColor = System.Drawing.Color.White;
             this.btnPreview.Location = new System.Drawing.Point(172, 82);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(491, 35);
+            this.btnPreview.Size = new System.Drawing.Size(143, 35);
             this.btnPreview.TabIndex = 10;
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = false;
@@ -383,6 +385,17 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 66;
             // 
+            // lblChannel
+            // 
+            this.lblChannel.AutoSize = true;
+            this.lblChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChannel.ForeColor = System.Drawing.Color.Blue;
+            this.lblChannel.Location = new System.Drawing.Point(452, 81);
+            this.lblChannel.Name = "lblChannel";
+            this.lblChannel.Size = new System.Drawing.Size(122, 31);
+            this.lblChannel.TabIndex = 19;
+            this.lblChannel.Text = "Channel";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -396,7 +409,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Newsletter 20151104";
+            this.Text = "Newsletter 20151105";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.groupBox1.ResumeLayout(false);
@@ -444,6 +457,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblChannel;
     }
 }
 
