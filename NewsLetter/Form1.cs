@@ -66,7 +66,7 @@ namespace NewsLetter
             if (_Channel == "PTV")
             {
                 lblChannel.Text = "PRESSTV";
-                textBox1.Enabled = textBox2.Enabled = false;
+                //textBox1.Enabled = textBox2.Enabled = false;
             }
             if (_Channel == "HTV")
             {
