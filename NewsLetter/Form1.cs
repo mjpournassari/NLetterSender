@@ -79,11 +79,11 @@ namespace NewsLetter
             try
             {
                 SmtpClient smtpClient = new SmtpClient();
-                NetworkCredential basicCredential = new NetworkCredential("noreply@hispantv.com", "%123456%");
+                NetworkCredential basicCredential = new NetworkCredential("hispantvnoticias@hispantv.com", "%123456%");
                 if (_Channel == "PTV")
                     basicCredential = new NetworkCredential("newsletter@presstv.com", "1qaz!QAZ");
                 MailMessage message = new MailMessage();
-                MailAddress fromAddress = new MailAddress("noreply@hispantv.com");
+                MailAddress fromAddress = new MailAddress("hispantvnoticias@hispantv.com");
                 if (_Channel == "PTV")
                     fromAddress = new MailAddress("newsletter@presstv.com");
                 smtpClient.Host = "mail.hispantv.com";
