@@ -104,7 +104,9 @@ namespace NewsLetter
                 message.To.Add(to);
                 smtpClient.Send(message);
             }
-            catch { }
+            catch(Exception Exp) {
+                File.AppendAllText(Path.GetDirectoryName(Application.ExecutablePath) + "\\Log.txt", Exp.Message);
+            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
