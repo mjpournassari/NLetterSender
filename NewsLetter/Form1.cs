@@ -52,7 +52,7 @@ namespace NewsLetter
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&text1="+textBox1.Text+"&text2="+textBox2.Text;
+            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+ "," + txtItem6.Text.Trim() + "," + txtItem7.Text.Trim() + "," + txtItem8.Text.Trim() + "," + txtItem9.Text.Trim() + "," + txtItem10.Text.Trim() + "&text1=" +textBox1.Text+"&text2="+textBox2.Text;
             if (_Channel == "PTV")
                 Url = "http://presstv.com/Callback/Newsletter?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&txt1="+textBox1.Text.Trim()+"&txt2="+textBox2.Text.Trim();
             webBrowser1.Navigate(Url);
@@ -66,11 +66,13 @@ namespace NewsLetter
             if (_Channel == "PTV")
             {
                 lblChannel.Text = "PRESSTV";
+                txtItem6.Enabled=txtItem7.Enabled=txtItem8.Enabled=txtItem9.Enabled=txtItem10.Enabled = false;
                 //textBox1.Enabled = textBox2.Enabled = false;
             }
             if (_Channel == "HTV")
             {
                 lblChannel.Text = "HISPANTV";
+                textBox1.Enabled = textBox2.Enabled = false;
             }
         }
             
