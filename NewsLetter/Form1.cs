@@ -52,9 +52,9 @@ namespace NewsLetter
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string Url = "http://hispantv.com/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+ "," + txtItem6.Text.Trim() + "," + txtItem7.Text.Trim() + "," + txtItem8.Text.Trim() + "," + txtItem9.Text.Trim() + "," + txtItem10.Text.Trim() + "&text1=" +textBox1.Text+"&text2="+textBox2.Text;
+            string Url = "http://217.218.67.246/services/newsletter.aspx?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+ "," + txtItem6.Text.Trim() + "," + txtItem7.Text.Trim() + "," + txtItem8.Text.Trim() + "," + txtItem9.Text.Trim() + "," + txtItem10.Text.Trim() + "&text1=" +textBox1.Text+"&text2="+textBox2.Text;
             if (_Channel == "PTV")
-                Url = "http://presstv.com/Callback/Newsletter?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&txt1="+textBox1.Text.Trim()+"&txt2="+textBox2.Text.Trim();
+                Url = "http://217.218.67.231/Callback/Newsletter?ids=" + txtItem1.Text.Trim() + "," + txtItem2.Text.Trim() + "," + txtItem3.Text.Trim() + "," + txtItem4.Text.Trim() + "," + txtItem5.Text.Trim()+"&txt1="+textBox1.Text.Trim()+"&txt2="+textBox2.Text.Trim();
             webBrowser1.Navigate(Url);
             Process objProcess = Process.Start("IEXPLORE.EXE", "-nomerge " + Url);
         }
